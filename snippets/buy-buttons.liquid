@@ -22,7 +22,11 @@
   style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;"
 >
   {%- if product != blank -%}
-    <product-form class="product-form main-product-form" data-section="{{ section.id }}" data-options="{{ product.options | join: ',' }}">
+    <product-form
+      class="product-form main-product-form"
+      data-section="{{ section.id }}"
+      data-options="{{ product.options | join: ',' }}"
+    >
       <div class="product-form__error-message-wrapper" role="alert" hidden>
         <svg
           aria-hidden="true"
@@ -50,6 +54,7 @@
           type="hidden"
           name="id"
           value="{{ product.selected_or_first_available_variant.id }}"
+          disabled
           class="product-variant-id"
           {% if block.settings.skip_cart %}
             data-skip-cart="true"
