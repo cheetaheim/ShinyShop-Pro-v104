@@ -78,7 +78,7 @@
         "04ba004e-2f54-4936-8b1c-8bcadf6573f6": {
           "type": "quantity_selector",
           "settings": {
-            "enable_quantity_discounts": false,
+            "enable_quantity_discounts": true,
             "style": "normal",
             "headline": "BUNDLE & SAVE",
             "preselected": "option_1",
@@ -212,7 +212,10 @@
         },
         "description": {
           "type": "description",
-          "settings": { "margin_top": 24, "margin_bottom": 24 }
+          "settings": {
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
         },
         "c43b9f54-e00a-4f9e-b42c-2914dde008a8": {
           "type": "reviews",
@@ -580,7 +583,10 @@
         },
         "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-heading-1": {
           "type": "heading",
-          "settings": { "heading": "Content heading", "heading_size": "h1" }
+          "settings": {
+            "heading": "Content heading",
+            "heading_size": "h1"
+          }
         },
         "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-text-1": {
           "type": "text",
@@ -591,7 +597,10 @@
         },
         "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-button-1": {
           "type": "button",
-          "settings": { "button_label": "Button label", "button_link": "" }
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
