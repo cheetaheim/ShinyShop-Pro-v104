@@ -34,8 +34,15 @@
 
     {% render 'meta-tags' %}
 
-     
-    <script src={{ 'shrine.null.js' | asset_url }} defer="defer" data-defer="true" data-country-list-function="{{ settings.country_list_function }}" data-country-list="{{ settings.country_list }}" data-country-list-error="{{ settings.country_invalid_error_msg }}" data-animations-type="{{ settings.animations_type }}"></script>
+    <script
+      src="{{ 'shrine.null.js' | asset_url }}"
+      defer="defer"
+      data-defer="true"
+      data-country-list-function="{{ settings.country_list_function }}"
+      data-country-list="{{ settings.country_list }}"
+      data-country-list-error="{{ settings.country_invalid_error_msg }}"
+      data-animations-type="{{ settings.animations_type }}"
+    ></script>
     <script src="{{ 'secondary.js' | asset_url }}" defer="defer" data-defer="true"></script>
     {{ content_for_header }}
 
@@ -199,7 +206,7 @@
         --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
         --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
         --inputs-hover-border-opacity: 1;
-        
+
         --variant-pills-radius: {{ settings.variant_pills_radius }}px;
         --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
         --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
@@ -381,7 +388,7 @@
     </a>
 
     {% sections 'header-group' %}
-    
+
     {%- if settings.cart_type == 'drawer' -%}
       {%- section 'cart-drawer' -%}
     {%- endif -%}
@@ -511,5 +518,6 @@
         })
       </script>
     {% endif %}
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
