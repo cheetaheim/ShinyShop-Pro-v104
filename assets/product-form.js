@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form[data-type="add-to-cart-form"]').forEach(function(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      e.stopImmediatePropagation(); // Bloque toute autre soumission native
+
       const formData = new FormData(form);
       fetch('/cart/add.js', {
         method: 'POST',
