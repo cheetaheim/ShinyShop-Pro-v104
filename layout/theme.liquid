@@ -439,17 +439,19 @@
     </script>
 
     <script>
-      const productForm = document.querySelector('.main-product-form');
-      if (productForm) {
-        document.querySelectorAll('[id^="SectionAtcBtn-"]').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            if (typeof productForm.onSubmitHandler === 'function') {
-              productForm.onSubmitHandler(e);
-            }
-          })
-        })
-      }
-
+      document.addEventListener('DOMContentLoaded', () => {
+        const productForm = document.querySelector('.main-product-form');
+        if (productForm) {
+          const formElement = productForm.querySelector('form');
+          document.querySelectorAll('[id^="SectionAtcBtn-"]').forEach(btn => {
+            btn.addEventListener('click', e => {
+              e.preventDefault();
+              if (formElement)
+                formElement.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+            });
+          });
+        }
+      });
       {% if settings.enable_load_animations %}
         const stickyAtc = document.querySelector('.sticky-atc');
         let bottomMargin = 50;
