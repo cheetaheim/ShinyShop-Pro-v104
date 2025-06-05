@@ -1,11 +1,16 @@
 
 // Utilitaire pour fetch (similaire à Dawn)
 function fetchConfig(type = 'json') {
-    return {
+    const config = {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        ...(type === 'json' ? { headers: { 'Content-Type': 'application/json' } } : {})
+        headers: { 'Accept': 'application/json' }
     };
+
+    if (type === 'json') {
+        config.headers['Content-Type'] = 'application/json';
+    }
+
+    return config;
 }
 
 if (!customElements.get('product-form')) {
