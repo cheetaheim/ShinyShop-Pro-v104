@@ -113,3 +113,33 @@ if (!customElements.get('product-form')) {
         }
     });
 }
+
+// Fallback for forms not wrapped in <product-form>
+document.addEventListener('DOMContentLoaded', function () {
+    document
+        .querySelectorAll('form[data-type="add-to-cart-form"]')
+        .forEach(function (form) {
+            // Skip if already handled by custom element
+            if (form.closest('product-form')) return;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch('/cart/add.js', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' },
+                })
+                    .then((response) => response.json())
+                    .then(() => {
+                        if (document.querySelector('cart-notification')) {
+                            document.querySelector('cart-notification').open();
+                        } else {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(() => {
+                        alert("Erreur lors de l'ajout au panier");
+                    });
+            });
+        });
+});
