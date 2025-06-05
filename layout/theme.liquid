@@ -443,7 +443,9 @@
       if (productForm) {
         document.querySelectorAll('[id^="SectionAtcBtn-"]').forEach(btn => {
           btn.addEventListener('click', (e) => {
-            productForm.handleSubmit(e);
+            if (typeof productForm.onSubmitHandler === 'function') {
+              productForm.onSubmitHandler(e);
+            }
           })
         })
       }
